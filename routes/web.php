@@ -44,7 +44,7 @@ Route::get('product/{id}', 'ProductController@detail')->name('product-detail');
 
 Route::get('cart', 'CartController@index')->name('cart');
 Route::post('cart/add/{id}', 'CartController@addToCart')->name('cart-add');
-Route::post('cart/delete/{id}', 'CartController@delete')->name('cart-delete');
+Route::delete('cart/delete/{id}', 'CartController@delete')->name('cart-delete');
 
 /*------------------------------|End App Route|--------------------------------*/
 
