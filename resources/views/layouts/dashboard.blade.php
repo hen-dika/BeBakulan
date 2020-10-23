@@ -18,14 +18,16 @@
             <!-- Sidebar -->
             <div class="border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading text-center">
-                    <img src="/images/dashboard-store-logo.svg" alt="" class="my-4" />
+                    <a href="{{ route('home') }}">
+                        <img src="/images/dashboard-store-logo.svg" alt="" class="my-4" />
+                    </a>
                 </div>
                 <div class="list-group list-group-flush">
                     <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == '') ? 'active' : '' }}">Dashboard</a>
                     <a href="{{ route('dashboard-product') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == 'product') ? 'active' : '' }}">My Products</a>
-                    <a href="/dashboard-transactions.html" class="list-group-item list-group-item-action">Transactions</a>
-                    <a href="/dashboard-settings.html" class="list-group-item list-group-item-action">Store Settings</a>
-                    <a href="/dashboard-account.html" class="list-group-item list-group-item-action">My Account</a>
+                    <a href="{{ route('dashboard-transaction') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == 'transaction') ? 'active' : '' }}">Transactions</a>
+                    <a href="{{ route('dashboard-setting-store') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == 'setting') ? 'active' : '' }}">Store Settings</a>
+                    <a href="{{ route('dashboard-setting-account') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == 'account') ? 'active' : '' }}">My Account</a>
                 </div>
             </div>
             <!-- /sidebar-wrapper -->
@@ -48,11 +50,11 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                     <img src="/images/icon-user.png" alt="" class="rounded-circle mr-2 profile-picture"/>
-                                    Hi, Angga
+                                    Hi, {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('home') }}">Back to Store</a>
-                                    <a class="dropdown-item" href="#">Settings</a>
+                                    <a class="dropdown-item" href="{{ route('dashboard-setting-account') }}">Settings</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                                 </div>

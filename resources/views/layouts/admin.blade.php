@@ -18,7 +18,9 @@
             <!-- Sidebar -->
             <div class="border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading text-center">
-                    <img src="/images/ic_admin.png" alt="" class="my-4" style="width: 75px" />
+                    <a href="{{ route('home') }}">
+                        <img src="/images/ic_admin.png" alt="" class="my-4" style="width: 75px" />
+                    </a>
                 </div>
                 <div class="list-group list-group-flush">
                     <a href="{{ route('admin-dashboard') }}" class="list-group-item list-group-item-action {{ (request()->is('admin')) ? 'active' : '' }}">Dashboard</a>

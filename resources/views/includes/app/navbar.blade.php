@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top" data-aos="fade-down">
     <div class="container">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ url('images/logo.svg') }}" alt="" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
                     </a>
                     <div class="dropdown-menu">
                         <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
-                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="{{ route('dashboard-setting-account') }}" class="dropdown-item">Settings</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </div>
