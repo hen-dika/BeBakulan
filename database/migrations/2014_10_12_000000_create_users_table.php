@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
 
             $table->longtext('address_one')->nullable();
             $table->longtext('address_two')->nullable();
-            $table->integer('provincies_id')->nullable();
+            $table->integer('provinces_id')->nullable();
             $table->integer('regencies_id')->nullable();
             $table->integer('zip_code')->nullable();
             $table->string('country')->nullable();
