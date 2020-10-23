@@ -48,4 +48,3 @@ Route::delete('cart/delete/{id}', 'CartController@delete')->name('cart-delete');
 
 /*------------------------------|End App Route|--------------------------------*/
 
-Route::get('register/check', 'Auth\RegisterController@check')->name('api-register-check');
