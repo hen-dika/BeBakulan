@@ -22,11 +22,11 @@
                 </div>
                 <div class="list-group list-group-flush">
                     <a href="{{ route('admin-dashboard') }}" class="list-group-item list-group-item-action {{ (request()->is('admin')) ? 'active' : '' }}">Dashboard</a>
-                    <a href="{{ route('category.index') }}" class="list-group-item list-group-item-action {{ (request()->is('admin/category') || request()->is('admin/category/create') || request()->is('admin/category/edit')) ? 'active' : '' }}">Categories</a>
-                    <a href="{{ route('product.index') }}" class="list-group-item list-group-item-action {{ (request()->is('admin/product') || request()->is('admin/product/create') || request()->is('admin/product/edit')) ? 'active' : '' }}">Products</a>
-                    <a href="{{ route('gallery.index') }}" class="list-group-item list-group-item-action {{ (request()->is('admin/gallery') || request()->is('admin/gallery/create') || request()->is('admin/gallery/edit')) ? 'active' : '' }}">Galleries</a>
+                    <a href="{{ route('category.index') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == 'category') ? 'active' : '' }}">Categories</a>
+                    <a href="{{ route('product.index') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == 'product') ? 'active' : '' }}">Products</a>
+                    <a href="{{ route('gallery.index') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == 'gallery') ? 'active' : '' }}">Galleries</a>
                     <a href="/dashboard-settings.html" class="list-group-item list-group-item-action">Transactions</a>
-                    <a href="{{ route('user.index') }}" class="list-group-item list-group-item-action {{ (request()->is('admin/user') || request()->is('admin/user/create') || request()->is('admin/user/edit')) ? 'active' : '' }}">Users</a>
+                    <a href="{{ route('user.index') }}" class="list-group-item list-group-item-action {{ (Request::segment(2) == 'user') ? 'active' : '' }}">Users</a>
                 </div>
             </div>
             <!-- /sidebar-wrapper -->

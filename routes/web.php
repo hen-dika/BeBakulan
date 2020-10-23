@@ -51,3 +51,18 @@ Route::post('checkout/callback', 'CheckoutController@callback')->name('callback'
 
 /*------------------------------|End App Route|--------------------------------*/
 
+/*-----------------------------|Dashboard Route|-------------------------------*/
+
+Route::prefix('dashboard')->namespace('dashboard')->middleware(['auth'])->group(function() {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('product', 'ProductController@index')->name('dashboard-product');
+    Route::get('product/create', 'ProductController@create')->name('dashboard-product-create');
+    Route::post('product/store', 'ProductController@store')->name('dashboard-product-store');
+    Route::get('product/detail/{id}', 'ProductController@details')->name('dashboard-product-detail');
+    Route::get('product/update/{id}', 'ProductController@update')->name('dashboard-product-update');
+    Route::post('gallery/upload', 'ProductController@uploadProductGallery')->name('dashboard-gallery-upload');
+    Route::get('gallery/delete/{id}', 'ProductController@deleteProductGallery')->name('dashboard-gallery-delete');
+
+});
+
+/*---------------------------|End Dashboard Route|-----------------------------*/

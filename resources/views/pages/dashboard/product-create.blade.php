@@ -15,41 +15,64 @@
                 Create your own product
             </p>
         </div>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
         <div class="dashboard-content">
             <div class="row">
                 <div class="col-12">
-                    <form action="">
+                    <form action="{{ route('dashboard-product-store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="name">Product Name</label>
-                                            <input type="text" class="form-control" id="name" aria-describedby="name" name="storeName" value="Papel La Casa"/>
+                                            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" required/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="categories_id">Product Category</label>
+                                            <select class="form-control" id="categories_id" aria-describedby="name" name="categories_id" value="Papel La Casa">
+                                            <option disabled>Choose one ...</option>    
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="price">Price</label>
-                                            <input type="number" class="form-control" id="price" aria-describedby="price" name="price" value="200"/>
+                                            <input type="number" class="form-control" id="price" aria-describedby="price" name="price" required/>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea name="descrioption" id="" cols="30" rows="4" class="form-control" >
-                                                The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air unit yet for unimaginable, all-day comfort. There's super breathable fabrics on the upper, while colours add a modern edge. Bring the past into the future with the Nike Air Max 2090, a bold look inspired by the DNA of the iconic Air Max 90. Brand-new Nike Air cushioning
+                                            <textarea name="description" id="description" cols="30" rows="4" class="form-control" >
                                             </textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="thumbnails">Thumbnails</label>
-                                            <input type="file" multiple class="form-control pt-1" id="thumbnails" aria-describedby="thumbnails" name="thumbnails"/>
+                                            <input type="file" multiple class="form-control pt-1" id="thumbnails" aria-describedby="thumbnails" name="image"/>
                                             <small class="text-muted">
-                                                Kamu dapat memilih lebih dari satu file
+                                                You can select more than one file
                                             </small>
                                         </div>
+                                        <input type="hidden" name="users_id" value="{{ Auth::user()->id }}">
                                     </div>
                                 </div>
                             </div>
@@ -71,5 +94,12 @@
 @endsection
 
 @push('addon-script')
-{{-- Additional JS --}}
+    <script src="{{ url('plugins/ckeditor5/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor
+        .create( document.querySelector( '#description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>
 @endpush
