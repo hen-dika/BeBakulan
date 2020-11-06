@@ -83,7 +83,12 @@
                     </a>
                 </div>
                 @endforelse
-
+            </div>
+            
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 mt-4">
+                    {{ $products->links() }}
+                </div>
             </div>
         </div>
     </section>

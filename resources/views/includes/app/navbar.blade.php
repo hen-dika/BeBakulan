@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top" data-aos="fade-down">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">
-            <img src="{{ url('images/logo.svg') }}" alt="" />
+            <img src="{{ url('images/logou.png') }}" alt="" style="max-height: 60px;"  />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

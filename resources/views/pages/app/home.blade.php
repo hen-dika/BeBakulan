@@ -77,7 +77,7 @@
                                 <div class="products-thumbnail">
                                     <div class="products-image" style="
                                         @if($product->gallery)
-                                            background-image: url('{{ Storage::url($product->gallery->first()->image) }}');
+                                            background-image: url('{{ Storage::url($product->gallery->first()->image ?? '') }}');
                                         @else
                                             background-color: #eee;
                                         @endif

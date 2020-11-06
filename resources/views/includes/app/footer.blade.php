@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <p class="pt-4 pb-2">
-                    2019 Copyright Store. All Rights Reserved.
+                    BeBaKuLaN - The Bigest Marketplace In The Galaxy | 2020  
                 </p>
             </div>
         </div>

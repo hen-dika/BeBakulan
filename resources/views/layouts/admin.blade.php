@@ -49,7 +49,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                     <img src="/images/icon-user.png" alt="" class="rounded-circle mr-2 profile-picture"/>
-                                    Hi, Angga
+                                    Hi, {{ Auth()->user()->name }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/index.html">Back to Store</a>
@@ -67,7 +67,7 @@
                         <ul class="navbar-nav d-block d-lg-none mt-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    Hi, Angga
+                                    Hi, {{ Auth()->user()->name }}
                                 </a>
                             </li>
                         </ul>
